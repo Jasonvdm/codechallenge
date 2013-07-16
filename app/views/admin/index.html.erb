@@ -5,19 +5,17 @@
 		<div class="square span6 ">
 			<hr style="margin-top:15px"/>
 			<div class="row control-panel" id="take-quiz-btn">
-				<div class="span6">Take a Code Quiz</div>
+				<div class="span6">Multiple Choice Q's</div>
 			</div>
 			<hr/>
 			<div class="row control-panel" id="view-results-btn">
-				<div class="span6" id="view-past-results-btn">View Past Results</div>
+				<div class="span6" id="view-past-results-btn">Free Response Q's</div>
 			</div>
 			<hr/>
 			<div class="row control-panel" id="edit-profile-btn" >
-				<div class="span6">Edit Your Profile</div>
+				<div class="span6">Users</div>
 			</div>
 			<hr/>
 		</div>
-		<%= render partial: "edit_profile_form", locals: {user: @user} %>
-		<%= render partial: "pick_quiz_category", locals: {user: @user} %>
 	</div>
 </div>

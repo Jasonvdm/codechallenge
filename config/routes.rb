@@ -4,7 +4,7 @@ Codechallenge::Application.routes.draw do
 
   resources :free_responses
 
-
+  resources :admin, only: [:index] 
   resources :quizzes
 
 

@@ -1,0 +1,16 @@
+<div class="square span12" id="edit-user-form-square" style="display:none">
+	<div id="edit-user-form" style="display:none">
+		<%= simple_form_for(user) do |f| %>
+		<%= f.error_notification %>
+
+		<div class="form-inputs">
+			<%= f.input :first_name %>
+			<%= f.input :last_name %>
+			<%= f.input :school %>
+			<%= f.input :year_in_school %>
+			<%= f.input :major %>
+		</div>
+		<%= f.button :submit %>
+		<% end %>
+	</div>
+</div>
