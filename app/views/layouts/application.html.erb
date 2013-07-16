@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Codechallenge</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="content">
+		<%= render partial: "layouts/navbar" %>
+		<% home_index = params[:controller] == "home" && params["action"] == "index" %>
+		<% if flash[:error] || flash[:notice] || flash[:alert] %>
+		<div class="alerts-container<%= " home-index" if home_index %>">
+			<div class="alerts t-center">
+				<% if flash[:error] %>
+				<div class="alert alert-error"><%= flash[:error] %></div>
+				<% end %>
+				<% if flash[:alert] %>
+				<div class="alert alert-info"><%= flash[:alert] %></div>
+				<% end %>
+				<% if flash[:notice] %>
+				<div class="alert alert-info"><%= flash[:notice] %></div>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+		<div class="<%= "container" unless home_index  %>">
+			<%= yield %>
+		</div>
+	</div>
+
+</body>
+</html>

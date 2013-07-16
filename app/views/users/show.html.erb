@@ -1,0 +1,40 @@
+<img src='/assets/modernoffice.jpg' class="bg">
+
+<div class="" style="margin-top:100px;">
+	<div class="row" >
+		<div class="square span6 ">
+			<hr style="margin-top:15px"/>
+			<div class="row control-panel" id="take-quiz-btn">
+				<div class="span6">Take a Code Quiz</div>
+			</div>
+			<hr/>
+			<div class="row control-panel" id="view-results-btn">
+				<div class="span6" id="view-past-results-btn">View Past Results</div>
+			</div>
+			<hr/>
+			<div class="row control-panel" id="edit-profile-btn" >
+				<div class="span6">Edit Your Profile</div>
+			</div>
+			<hr/>
+		</div>
+
+
+		<div class="square span12" id="edit-user-form-square" style="display:none">
+			<div id="edit-user-form" style="display:none">
+				<%= simple_form_for(@user) do |f| %>
+				<%= f.error_notification %>
+
+				<div class="form-inputs">
+					<%= f.input :first_name %>
+					<%= f.input :last_name %>
+					<%= f.input :school %>
+					<%= f.input :year_in_school %>
+					<%= f.input :major %>
+				</div>
+				<%= f.button :submit %>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+</div>

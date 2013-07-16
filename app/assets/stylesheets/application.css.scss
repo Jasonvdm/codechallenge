@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ @import "colorscheme";
+ @import "bootstrap-responsive";
+ @import "bootstrap_overrides";
+ @import "bootstrap"; 
+ @import "fonts";
+
+
+ * {
+ 	font: 18px/28px 'roboto';
+ 	font-weight: 100;
+ 	font-style: normal;
+ 	@include box-sizing(border-box);
+
+ }
+
+h1, h2 {
+  // letter-spacing: 2px;
+  font: 21px/22px "roboto";
+  font-weight: 100;
+  &.big {
+  	font: 55px/70px "roboto";
+  	font-weight: 500;
+  }
+  &.form {
+  	padding-bottom: 10px;
+  }
+}
+
+.text-center, .t-center {
+	text-align: center;
+}
+
+
+ .navbar div.btn-group {
+ 	display:inline-block;
+ 	padding: 0;
+ }
+
+ .square {
+	color: white;
+	margin-top: 15px;
+	background-color:rgba(0,0,0,0.8);
+	padding: 18px  25px;
+  //@include border-radius(7px);
+  @include box-shadow(black 0px 2px 17px -1px);
+ 
+  div {
+  }
+}
+
+ hr { border-color: white; margin-top: 0px; margin-bottom: 10px;}
+
+a{
+	&:hover {
+		color: white;
+	}
+}
+
+
+ .navbar-fixed-top .navbar-inner {
+ 	border: none;
+ 	color: white;
+
+ 	a {
+ 		font-family: 'roboto';
+ 		font-weight: 100;
+ 		font-style: normal;
+ 	}	
+
+ 	li > a, a {
+ 		font-size: 16px;
+ 		line-height: inital;
+ 		line-height: 30px;
+ 	}
+
+ 	#main-btn-group {
+ 		width: 301px;
+ 		margin: 0 auto;
+ 		display: block;
+ 	}
+
+
+ 	a.brand {
+ 		margin-top: 4px;
+ 		font-size: 20px;
+ 		line-height: 30px;
+ 		letter-spacing: 1px;
+ 	}
+
+
+ }
