@@ -1,0 +1,21 @@
+<h1>Listing free_response_answers</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @free_response_answers.each do |free_response_answer| %>
+  <tr>
+    <td><%= link_to 'Show', free_response_answer %></td>
+    <td><%= link_to 'Edit', edit_free_response_answer_path(free_response_answer) %></td>
+    <td><%= link_to 'Destroy', free_response_answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Free response answer', new_free_response_answer_path %>

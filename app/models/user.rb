@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name
   attr_accessible :last_name, :school, :year_in_school, :major
   # attr_accessible :title, :body
+
+  has_many :quizzes
 end

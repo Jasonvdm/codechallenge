@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require src/ace
+//= require src/mode-javascript
 
 $(document).ready(function(){
 	Users.initialize();
-
+	editor = ace.edit("editor");
+	//editor.insert("Something cool.\nNew line");
+$('.ace_text-layer').css({ 'font-size': '14px' });
 	
 });

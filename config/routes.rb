@@ -1,8 +1,14 @@
 Codechallenge::Application.routes.draw do
-  resources :multiple_choices
+  resources :multiple_choice_answers
 
 
-  resources :free_responses
+  resources :free_response_answers
+
+
+  resources :multiple_choice_questions
+
+
+  resources :free_response_questions
 
   resources :admin, only: [:index] 
   resources :quizzes
@@ -10,7 +16,11 @@ Codechallenge::Application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resources :users do 
+    member do
+      post 'take_new_quiz'
+    end
+  end
 
   root to: "home#index"
 

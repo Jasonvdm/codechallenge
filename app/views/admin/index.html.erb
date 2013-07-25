@@ -4,15 +4,15 @@
 	<div class="row" >
 		<div class="square span6 ">
 			<hr style="margin-top:15px"/>
-			<div class="row control-panel" id="take-quiz-btn">
-				<div class="span6">Multiple Choice Q's</div>
+			<div class="row control-panel">
+				<div class="span6"><%= link_to "Multiple Choice Q's", multiple_choice_questions_path, :style => "color:white" %></div>
 			</div>
 			<hr/>
-			<div class="row control-panel" id="view-results-btn">
-				<div class="span6" id="view-past-results-btn">Free Response Q's</div>
+			<div class="row control-panel">
+				<div class="span6" id="view-past-results-btn"><%= link_to "Free Response Q's", free_response_questions_path, :style => "color:white" %></div>
 			</div>
 			<hr/>
-			<div class="row control-panel" id="edit-profile-btn" >
+			<div class="row control-panel" >
 				<div class="span6">Users</div>
 			</div>
 			<hr/>

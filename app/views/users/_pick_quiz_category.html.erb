@@ -4,7 +4,7 @@
 		<% quiz_categories.each do |category| %>
 
 		<div class="row control-panel">
-			<div class="span6"><%= category %></div>
+			<div class="span6"><%= link_to category, take_new_quiz_user_path(:category => category), :style => "color:white", :method => "post" %></div>
 		</div>
 		<hr/>
 		<% end %>

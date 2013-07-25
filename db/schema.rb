@@ -11,21 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716052018) do
+ActiveRecord::Schema.define(:version => 20130723041239) do
 
-  create_table "free_responses", :force => true do |t|
+  create_table "free_response_answers", :force => true do |t|
+    t.integer  "free_response_question_id"
+    t.integer  "quiz_id"
+    t.text     "user_response"
+    t.integer  "points_scored"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  create_table "free_response_questions", :force => true do |t|
     t.string   "title"
     t.integer  "quiz_id"
     t.text     "prompt"
     t.text     "instructions"
-    t.text     "user_response"
     t.text     "correct_answer"
     t.string   "category"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
 
-  create_table "multiple_choices", :force => true do |t|
+  create_table "multiple_choice_answers", :force => true do |t|
+    t.integer  "multiple_choice_question_id"
+    t.integer  "quiz_id"
+    t.string   "user_response"
+    t.boolean  "is_correct"
+    t.integer  "points_scored"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  create_table "multiple_choice_questions", :force => true do |t|
+    t.string   "title"
+    t.integer  "quiz_id"
+    t.text     "prompt"
+    t.string   "correct_answer"
+    t.string   "wrong_answers"
+    t.string   "category"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "multiple_choices_questions", :force => true do |t|
     t.string   "title"
     t.integer  "quiz_id"
     t.text     "prompt"
@@ -66,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20130716052018) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "is_admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

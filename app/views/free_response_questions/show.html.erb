@@ -1,0 +1,33 @@
+
+<div class="row" style="margin-top:100px">
+	<div class="span12">
+		<b><%= @free_response_question.title %></b>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<%= @free_response_question.prompt %>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<%= @free_response_question.instructions %>
+	</div>
+</div>
+<div class="row" style="margin-top:5px">
+	<div class="span12">
+		
+	</div>
+</div>
+
+<div id="instructions" style="display:none"> <%=@free_response_question.instructions%> </div>
+
+<div id="editor"></div>
+
+<script> 
+	editor = ace.edit("editor");
+ 	editor.insert("/** \n" + " *" + $("#instructions").text() + "\n" + "**/\n\n");
+</script>
+
+
+<%= link_to 'Edit', edit_free_response_path(@free_response_question) %> 

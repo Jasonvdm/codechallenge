@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="span16">
+		<b><%= @multiple_choice_question.title %></b>
+	</div>
+</div>
+<div class="row">
+	<div class="span16w">
+		<%= @multiple_choice_question.prompt %>
+	</div>
+</div>
+<div class="row">
+	<div class="span16w">
+		<b><%= @multiple_choice_question.title %></b>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_multiple_choice_question_path(@multiple_choice_question) %> 

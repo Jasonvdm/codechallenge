@@ -41,7 +41,8 @@ class QuizzesController < ApplicationController
   # POST /quizzes.json
   def create
     @quiz = Quiz.new(params[:quiz])
-
+    @quiz.category = params[:category]
+    @quiz.user_id = current_user.id
     respond_to do |format|
       if @quiz.save
         format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }

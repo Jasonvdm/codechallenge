@@ -2,7 +2,7 @@
 
 <div class="" style="margin-top:100px;">
 	<div class="row" >
-		<div class="square span6 ">
+		<div class="square span6" style="display:">
 			<hr style="margin-top:15px"/>
 			<div class="row control-panel" id="take-quiz-btn">
 				<div class="span6">Take a Code Quiz</div>
@@ -19,5 +19,6 @@
 		</div>
 		<%= render partial: "edit_profile_form", locals: {user: @user} %>
 		<%= render partial: "pick_quiz_category", locals: {user: @user} %>
+		<%= render partial: "take_quiz_portal", locals: {user: @user, quiz: @quiz} %>
 	</div>
 </div>
