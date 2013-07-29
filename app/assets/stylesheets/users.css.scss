@@ -3,13 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .control-panel{
-	padding-top:10px;
-	padding-bottom: 10px;
+	padding-top:12px;
+	padding-bottom: 12px;
 	margin-left: 0px;
-	margin-top:	-7px;
+	margin-top:	-10px;
 	
 }
 
-#edit-profile-btn:hover {background-color:black !important; cursor: pointer;} 
-#take-quiz-btn:hover {background-color:black !important; cursor: pointer;} 
-#view-results-btn:hover {background-color:black !important; cursor: pointer;} 
+#edit-profile-btn:hover {background-color: #1ABC9C !important; cursor: pointer;} 
+#take-quiz-btn:hover {background-color: #1ABC9C !important; cursor: pointer;} 
+#view-results-btn:hover {background-color: #1ABC9C !important; cursor: pointer;} 
+
+#take-quiz-portal{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}

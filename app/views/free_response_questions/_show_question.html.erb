@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="span12">
+		<b><%= free_response_question.title %></b>
+	</div>
+</div>
+<div class="row">
+	<div class="span12">
+		<%= free_response_question.prompt %>
+	</div>
+</div>
+
+<div class="row" style="margin-top:5px">
+	<div class="span17">
+		<div id="instructions" style="display:none"> <%=free_response_question.instructions%> </div>
+
+		<div id="editor"></div>
+	</div>
+</div>
+
+<script> 
+editor = ace.edit("editor");
+editor.insert("/** \n" + " *" + $("#instructions").text() + "\n" + "**/\n\n");
+</script>

@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130723041239) do
+ActiveRecord::Schema.define(:version => 20130727223023) do
+
+  create_table "fr_questions", :force => true do |t|
+    t.integer "quiz_id"
+    t.integer "free_response_question_id"
+  end
 
   create_table "free_response_answers", :force => true do |t|
     t.integer  "free_response_question_id"
@@ -24,13 +29,17 @@ ActiveRecord::Schema.define(:version => 20130723041239) do
 
   create_table "free_response_questions", :force => true do |t|
     t.string   "title"
-    t.integer  "quiz_id"
     t.text     "prompt"
     t.text     "instructions"
     t.text     "correct_answer"
     t.string   "category"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "mc_questions", :force => true do |t|
+    t.integer "quiz_id"
+    t.integer "multiple_choice_question_id"
   end
 
   create_table "multiple_choice_answers", :force => true do |t|
@@ -45,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20130723041239) do
 
   create_table "multiple_choice_questions", :force => true do |t|
     t.string   "title"
-    t.integer  "quiz_id"
     t.text     "prompt"
     t.string   "correct_answer"
     t.string   "wrong_answers"

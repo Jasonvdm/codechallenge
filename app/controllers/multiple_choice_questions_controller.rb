@@ -14,7 +14,12 @@ class MultipleChoiceQuestionsController < ApplicationController
   # GET /multiple_choice_questions/1.json
   def show
     @multiple_choice_question = MultipleChoiceQuestion.find(params[:id])
-
+    @possible_answers = []
+    @multiple_choice_question.wrong_answers.split(",").each do |wrong_answer|
+      @possible_answers << wrong_answer
+    end
+    @possible_answers << @multiple_choice_question.correct_answer
+    @possible_answers.shuffle!
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @multiple_choice_question }

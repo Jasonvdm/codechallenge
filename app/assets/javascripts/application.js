@@ -21,5 +21,4 @@ $(document).ready(function(){
 	editor = ace.edit("editor");
 	//editor.insert("Something cool.\nNew line");
 $('.ace_text-layer').css({ 'font-size': '14px' });
-	
 });

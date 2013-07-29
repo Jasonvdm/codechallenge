@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="span16">
+		<b><%= mc_question.title %></b>
+	</div>
+</div>
+<div class="row">
+	<div class="span16">
+		<%= mc_question.prompt %>
+	</div>
+</div>
+<div class="row">
+	<div class="span16">
+		<% possible_answers.each do |answer| %>
+		<span style="margin-right:10px">
+			<%= radio_button "question", mc_question.id, answer, style: "margin-top:-5px" %>
+			<%= answer %>
+		</span>
+		<% end %>
+	</div>
+</div>

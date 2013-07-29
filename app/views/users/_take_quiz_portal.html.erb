@@ -1,5 +1,22 @@
-<div class="square span18 offset3" id="take-quiz-portal" style="display:none">
-	<div id="quiz-screen" style="display:none">
-		
+<div class="square span18 offset3" id="take-quiz-portal" style="display:none;">
+	<div id="quiz-screen">
+		<div class="row">
+			<div class="span17">
+				<h1>You are now taking a <%= @quiz.category%> quiz! </h1>
+				<hr/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span18">
+				<% @quiz.mc_questions.each do |mc_question| %>
+				<%= render partial: "multiple_choice_questions/show_mc_question", locals: {user: @user, mc_question: mc_question, possible_answers: shuffle_answers(mc_question) } %>
+				<% end %>
+				<% @quiz.fr_questions.each do |free_response_question| %>
+				<%= render partial: "free_response_questions/show_question", locals: {user: @user, free_response_question: free_response_question } %> 
+
+				<% end %>
+
+			</div>
+		</div>
 	</div>
 </div>

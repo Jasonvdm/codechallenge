@@ -4,13 +4,18 @@
 	</div>
 </div>
 <div class="row">
-	<div class="span16w">
+	<div class="span16">
 		<%= @multiple_choice_question.prompt %>
 	</div>
 </div>
 <div class="row">
-	<div class="span16w">
-		<b><%= @multiple_choice_question.title %></b>
+	<div class="span16">
+		<% @possible_answers.each do |answer| %>
+		<span style="margin-right:10px">
+			<%= radio_button "question", @multiple_choice_question.id, answer, style: "margin-top:-5px" %>
+			<%= answer %>
+		</span>
+		<% end %>
 	</div>
 </div>
 
