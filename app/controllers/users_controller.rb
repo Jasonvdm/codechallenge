@@ -85,22 +85,39 @@ class UsersController < ApplicationController
   end
 
 
-  def take_new_quiz
-    @quiz = Quiz.new(params[:quiz])
-    @quiz.category = params[:category]
-    @quiz.user_id = current_user.id
-    respond_to do |format|
-      if @quiz.save
-        format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
-        format.json { render json: @quiz, status: :created, location: @quiz }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @quiz.errors, status: :unprocessable_entity }
+  def generate_new_quiz(category)
+    quiz = Quiz.new(params[:quiz])
+    quiz.category = category
+    quiz.user_id = current_user.id
+    mc_question = MultipleChoiceQuestion.all.sample
+    i = 0
+    length = MultipleChoiceQuestion.all.length
+    while i < 12 && i < length do
+      while true
+        mc_question = MultipleChoiceQuestion.all.sample
+        if !quiz.mc_questions.include(mc_question)?
+          @quiz.mc_questions << mc_question
+          break
+        end
       end
+      i = i + 1
     end
+    return quiz
   end
 
 
+  def take_quiz
+    category = params[:category]
+
+    temp_quiz = @user.quizzes.where(:category => category, :is_completed => false, :in_progress => true).first
+    if temp_quiz
+      @temp_quiz = temp_quiz
+      respond_to do |format|
+        format.html { redirect_to @user }
+        format.json { render json: @temp_quiz, location: @user }
+      end
+    end
+  end
 
   def shuffle_answers(mc_question)
     possible_answers = []
@@ -111,6 +128,7 @@ class UsersController < ApplicationController
     possible_answers.shuffle!
     return possible_answers
   end
+
 
 end
 

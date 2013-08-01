@@ -75,8 +75,8 @@ $btnSuccessBackgroundHighlight:     darken($limegreen, 5%);
 $btnWarningBackground:              adjust-hue(darken(#F89406, 5%), -10%);
 $btnWarningBackgroundHighlight:     darken($btnWarningBackground, 5%);
 
-$btnDangerBackground:               #ee5f5b;
-$btnDangerBackgroundHighlight:      #bd362f;
+$btnDangerBackground:               #1ABC9C;
+$btnDangerBackgroundHighlight:      #1ABC9C;
 
 $btnInverseBackground:              $gray;
 $btnInverseBackgroundHighlight:     $grayDarker;

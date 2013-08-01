@@ -18,3 +18,10 @@
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+
+.new_quiz_cat {
+	cursor: pointer;
+	&:hover{
+		background-color: #1ABC9C !important;
+	}
+}
