@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  helper_method :shuffle_answers
+  
 
   # GET /users
   # GET /users.json
@@ -92,10 +92,10 @@ class UsersController < ApplicationController
     mc_question = MultipleChoiceQuestion.all.sample
     i = 0
     length = MultipleChoiceQuestion.all.length
-    while i < 12 && i < length do
+    while i < 12 && i < length 
       while true
         mc_question = MultipleChoiceQuestion.all.sample
-        if !quiz.mc_questions.include(mc_question)?
+        if !quiz.mc_questions.include? mc_question
           @quiz.mc_questions << mc_question
           break
         end
@@ -105,28 +105,34 @@ class UsersController < ApplicationController
     return quiz
   end
 
+  def start_new_quiz 
+    @user = current_user
+    category = params[:category]
+    @quiz = generate_new_quiz(category)
+    respond_to do |format|
+      format.html 
+      format.js   
+    end
+  end
 
-  def take_quiz
+
+  def get_quiz
+    @user = current_user
     category = params[:category]
 
     temp_quiz = @user.quizzes.where(:category => category, :is_completed => false, :in_progress => true).first
     if temp_quiz
-      @temp_quiz = temp_quiz
-      respond_to do |format|
-        format.html { redirect_to @user }
-        format.json { render json: @temp_quiz, location: @user }
-      end
+      @quiz = temp_quiz
+      @existing_quiz = true
+    else
+      @category = category
+      @existing_quiz = false
     end
-  end
 
-  def shuffle_answers(mc_question)
-    possible_answers = []
-    mc_question.wrong_answers.split(",").each do |wrong_answer|
-      possible_answers << wrong_answer
+    respond_to do |format|
+      format.html 
+      format.js   
     end
-    possible_answers << mc_question.correct_answer
-    possible_answers.shuffle!
-    return possible_answers
   end
 
 

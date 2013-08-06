@@ -18,7 +18,7 @@ Codechallenge::Application.routes.draw do
 
   resources :users do 
     member do
-      post 'take_new_quiz'
+      get 'get_quiz'
     end
   end
 

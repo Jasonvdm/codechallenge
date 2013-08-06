@@ -3,9 +3,11 @@
 		<hr style="margin-top:15px"/>
 		<% quiz_categories.each do |category| %>
 
-		<div class="row control-panel new_quiz_cat">
-			<div class="span6" id="take_new_quiz_btn"> <%= category %></div>
-		</div>
+		<%= link_to(get_quiz_user_path(:category => category), remote: true, style: "color:white") do %>
+			<div class="row control-panel new_quiz_cat" id="take_new_quiz_btn">
+				<div class="span6"> <%= category %> </div>
+			</div>
+		<% end %>
 		<hr/>
 		<% end %>
 	</div>

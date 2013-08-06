@@ -1,0 +1,6 @@
+<% quiz.mc_questions.each do |mc_question| %>
+<%= render partial: "multiple_choice_questions/show_mc_question", locals: {user: user, mc_question: mc_question, possible_answers: shuffle_answers(mc_question) } %>
+<% end %>
+<% quiz.fr_questions.each do |free_response_question| %>
+<%= render partial: "free_response_questions/show_question", locals: {user: user, free_response_question: free_response_question } %> 
+<% end %>

@@ -7,7 +7,9 @@ window.Users ||= {}
 Users.initialize = ->
 	hash = window.location.hash.substring(1)
 	if(hash == "take-quiz")
-		take_code_quiz()
+		$('#take-quiz-btn').css("background-color", "#1ABC9C")
+		$("#pick-quiz-category").show()
+		$("#quiz-categories").show()
 	window.onresize = set_quiz_portal_height
 	set_quiz_portal_height()
 	$('#edit-profile-btn').on "click", (target) ->
@@ -17,9 +19,6 @@ Users.initialize = ->
 		take_code_quiz()
 	$('#take_new_quiz_btn').on "click", (target) ->
 		
-		$("#pick-quiz-category").slideToggle ->
-		hide_control_pane()
-		$("#take-quiz-portal").slideToggle()
 
 
 
