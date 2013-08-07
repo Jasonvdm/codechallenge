@@ -90,7 +90,6 @@ class UsersController < ApplicationController
     quiz.in_progress = true
     quiz.category = category
     quiz.user_id = current_user.id
-    mc_question = MultipleChoiceQuestion.all.sample
     i = 0
     length = MultipleChoiceQuestion.all.length
     while i < 12 && i < length 
@@ -103,6 +102,21 @@ class UsersController < ApplicationController
       end
       i = i + 1
     end
+
+    i = 0
+    length = FreeResponseQuestion.all.length
+    while i < 3 && i < length 
+      while true
+        fr_question = FreeResponseQuestion.all.sample
+        if !quiz.fr_questions.include? fr_question
+          quiz.fr_questions << fr_question
+          break
+        end
+      end
+      i = i + 1
+    end
+
+
     quiz.save!
     return quiz
   end
