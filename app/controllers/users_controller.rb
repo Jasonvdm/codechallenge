@@ -87,6 +87,7 @@ class UsersController < ApplicationController
 
   def generate_new_quiz(category)
     quiz = Quiz.new(params[:quiz])
+    quiz.in_progress = true
     quiz.category = category
     quiz.user_id = current_user.id
     mc_question = MultipleChoiceQuestion.all.sample
@@ -96,12 +97,13 @@ class UsersController < ApplicationController
       while true
         mc_question = MultipleChoiceQuestion.all.sample
         if !quiz.mc_questions.include? mc_question
-          @quiz.mc_questions << mc_question
+          quiz.mc_questions << mc_question
           break
         end
       end
       i = i + 1
     end
+    quiz.save!
     return quiz
   end
 

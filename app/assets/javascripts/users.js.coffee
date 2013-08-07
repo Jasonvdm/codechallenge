@@ -17,6 +17,9 @@ Users.initialize = ->
 				
 	$('#take-quiz-btn').on "click", (target) ->
 		take_code_quiz()
+	$('#begin-new-quiz-btn').on "click", (target) ->
+		alert "adss"
+		take_code_quiz()
 	$('#take_new_quiz_btn').on "click", (target) ->
 		
 
